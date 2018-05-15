@@ -8,6 +8,7 @@
             list-style: none;
         }
 
+        /*主区域，版心*/
         .main{
             width:600px;
             height:400px;
@@ -17,6 +18,7 @@
             border:2px red solid;
         }
 
+        /*屏幕，显示一张图片的区域*/
         .screen{
             width:600px;
             height:400px;
@@ -27,7 +29,8 @@
             top:0;
             overflow:hidden;
         }
-        
+
+        /*所有图片横向展开为ul的形式*/
         .main ul{
             width:4200px;
             height:400px;
@@ -42,12 +45,13 @@
             float:left;
 
         }
-
+        /*图片大小与屏幕大小一致*/
         .screen img{
             width:600px;
             height:400px;
         }
 
+        /*向左切换按钮*/
         .screen .arr-left{
             width:40px;
             height:80px;
@@ -60,6 +64,7 @@
             border-radius: 10px 0px 0px 10px;
         }
 
+        /*向右切换按钮*/
         .screen .arr-right{
             width:40px;
             height:80px;
@@ -73,11 +78,13 @@
 
         }
 
+
         .screen span{
             line-height:80px;
             font:400 24px/80px "microsoft yahei";
         }
 
+        /*鼠标悬停于屏幕时，显示左右切换按钮*/
         .screen:hover .arr-left{
             display:block;
         }
@@ -86,6 +93,7 @@
             display:block;
         }
 
+        /*指示图片所在序号的有序列表*/
         .screen ol{
             position:absolute;
             bottom:40px;
@@ -136,6 +144,7 @@
         </div>
 
         <script>
+            // 获取元素
             var screen=document.getElementsByClassName("screen")[0];
             var ul=screen.children[0];
             var firstLi=ul.children[0];
@@ -148,25 +157,29 @@
             var li=document.getElementsByTagName("ol")[0].children;
 
 
-
+            // 初始化
             var key=0;
             var btn=1;
-            var base=ul.offsetLeft;
+            // var base=ul.offsetLeft;
             li[0].className="current";
 
             //console.log(base);
 
+
+            // 自动播放
             var timer=setInterval(autoPlay,1000);
 
+            // 悬停时轮播暂停
             screen.onmouseover=function(){
                 clearInterval(timer);
 
             }
-
+            // 鼠标移开后继续
             screen.onmouseout=function(){
                 timer=setInterval(autoPlay,1000);
             }
 
+            // 向左切换
             leftArr.onclick=function() {
                 if(btn==1){
                     btn=5;
@@ -197,12 +210,13 @@
 
             }
 
-            console.log(rightArr);
-
+            // console.log(rightArr);
+            // 向右切换
              rightArr.onclick=function(){
                  autoPlay();
              }
 
+             //序号上悬停时移动到相应的图片
              for(let i=0 ; i<li.length;i++){
                  li[i].index = i;
                  li[i].onmouseover=function(){
@@ -218,7 +232,7 @@
              }
 
 
-
+            //自动轮播函数
             function autoPlay(){
 
                     key++;
@@ -246,6 +260,7 @@
 
             }
 
+            //移动ul的函数
             function animate(ele,pos){
                 clearInterval(ele.timer);
                 var speed=pos<ele.offsetLeft?-10:10;
