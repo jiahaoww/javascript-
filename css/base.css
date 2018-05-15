@@ -1,0 +1,242 @@
+html,body,ul,ol,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0;}
+fieldset,img,input,button{border:none;margin:0;padding:0;outline-style:none;}
+ul,ol{
+    list-style:none;
+}
+
+input{padding-top:0;padding-bottom:0;font-family:"SimSun","宋体";}
+select,input{vertical-align: middle;}
+select,input,textarea{font-size: 12px;margin:0;}
+textarea{resize:none;}
+img{border:0;vertical-align: middle;}
+table{border-collapse: collapse;}
+body{
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color: #666;
+    background:#fff;
+}
+
+/*start:清除浮动【推荐此方式进行清除浮动】。左浮动和右浮动都清除了，盒子刚好达到闭合的状态*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+/*end：清除浮动*/
+
+a{color:#666;text-decoration:none;}
+a:hover{
+    color:#C81623;
+}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;} /*font-size:100% 的意思是：让它们和父亲一样大，避免在不同的浏览器中显示大小不一致*/
+s,i,em{font-style:normal;text-decoration:none;}  /*去掉i标签和em的斜体，取消s标签的删除线*/
+.col-red{color: #C81623!important;}
+
+.w { /*版心（可视区）。需要专门提取出来 */
+    /*height:100%;*/
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.demo_line_01{
+    padding: 0 20px 0;
+    margin: 20px 0;
+    line-height: 1px;
+    border-left: 200px solid #ddd;
+    border-right: 200px solid #ddd;
+    text-align: center;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.hide {
+    display: none
+}
+
+.topbanner {
+    background-color: #ffffff;
+}
+.close-banner {
+    position: absolute;
+    right:0;
+    top:5px;
+    width:300px;
+    height:300px;
+    background: url(../resource/image/close2.jpg) no-repeat;
+}
+.close-banner:hover {
+    background-position:bottom;
+}
+.tp{
+    position: relative;
+}
+
+.shortcut{
+    height:30px;
+    line-height: 30px;
+    background-color:#f1f1f1;
+}
+
+.dt,.shortcut .fore{
+    padding:0 20px 0 10px;
+    position:relative;
+}
+
+.dt i,
+.fore i {
+    font: 400 15px/15px "宋体";
+    position: absolute;
+    top: 13px;
+    right: 3px;
+    height: 7px;
+    overflow: hidden;
+    width: 15px;
+}
+
+.dt s,
+.fore s {
+    position: absolute;
+    top: -8px;
+    left: 0;
+}
+
+
+.fr li{
+     float:left;
+     padding:0 10px;
+ }
+
+.fr .line{
+    padding:0;
+    margin-top:9px;
+    width:1px;
+    height:12px;
+    background-color: #ddd;
+
+}
+
+.search-logo{
+    width:121px;
+    height:121px;
+    padding:25px 0;
+    float:left;
+
+}
+
+.search-logo a{
+    display:block;
+    width:121px;
+    height:121px;
+    background:url("../resource/image/dog1.jpg") no-repeat;
+    text-indent: -9999px;
+}
+
+.search-input{
+    float:left;
+    height:36px;
+    padding-left:100px;
+    padding-top:65px;
+}
+
+.search-input input{
+
+    float:left;
+    width:450px;
+    height:32px;
+    font:14px/32px "微软雅黑";
+    padding-left:4px;
+    color:rgb(153,153,153);
+    border:2px solid #B61D1D;
+    border-right:0;
+}
+
+.search-input button{
+    width:82px;
+    height:36px;
+    color:#fff;
+    float:left;
+    font:400 16px/36px "微软雅黑";
+    background:#B61D1D;
+    cursor: pointer ;
+}
+
+.search-car {
+    float:right;
+    width:150px;
+    height:36px;
+    margin: 65px 70px 0 0;
+    padding-left: 45px;
+    border:2px solid #fff;
+    background:#F9F9F9;
+    position:relative;
+}
+
+.search-car a{
+    font:400 10px/36px "微软雅黑";
+    color:red;
+}
+
+.car-num{
+    width:14px;
+    height:14px;
+    color:white;
+    font:400 7px/14px "Times New Roman";
+    padding-left:7px;
+    border-radius: 6px;
+    background: #c80813;
+    position:absolute;
+    top:8px;
+    right:30px;
+    font-size:4px;
+}
+
+.footer{
+    margin-top:20px;
+}
+
+.footer dl{
+    float:left;
+    width:200px;
+}
+
+.footer dt{
+    height:34px;
+    font:400 16px/34px "微软雅黑";
+}
+
+.footer dd{
+    line-height:20px;
+}
+
+.coverage{
+    float:left;
+    width:150px;
+    height:150px;
+    background:url("../resource/image/dog1.jpg") no-repeat left bottom;
+}
+

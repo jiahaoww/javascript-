@@ -1,0 +1,220 @@
+.shortcut-nav {
+    height: 44px;
+    border-bottom: 2px solid #B1191A;
+}
+.shortcut-nav-menu {     /*撑开和撑破是两回事：撑开说明盒子变成那么大，撑破盒子还是那么大，子盒子很大。子盒子shortcut-nav-menu-one把父亲撑破了*/
+    width: 210px;
+    height: 44px;        /*浮动的盒子相互影响，不过是否在同一个盒子中*/
+    float: left;
+    position: relative;
+    z-index: 1;       /*通过z-index属性将层级放到最高*/
+}
+.shortcut-nav-menu-all a {
+    display: block;
+    width: 190px;
+    height: 44px;
+    color: white;
+    padding: 0 10px;
+    background-color: #B1191A;
+    font: 400 15px/44px "microsoft yahei";
+}
+.shortcut-nav-menu-one {
+    height: 465px;
+    margin-top: 2px;
+    background-color: #C81623;
+    /*border-left: 1px solid #B1191A;*/
+    /*border-bottom: 1px solid #B1191A;*/
+    /*border-left: 1px solid #000;*/
+    /*border-bottom: 1px solid #000;*/
+}
+
+.shortcut-nav-menu-one ul{
+    font:400 16px/46px "微软雅黑";
+    color:#fff;
+}
+
+.shortcut-nav-menu-one ul li{
+    padding:5px 0 5px 10px;
+    position:relative;
+}
+
+.shortcut-nav-menu-one ul li i{
+    position:absolute;
+    right:10px;
+}
+
+.shortcut-nav-menu-one ul li:hover{
+    background:#fff;
+}
+
+.shortcut-nav-menu-one ul li:hover span a i{
+    color:#C81623;
+}
+.shortcut-nav-items {
+    width: 730px;
+    height: 44px;
+    float: left;
+}
+.shortcut-nav-items li {
+    float: left;
+}
+.shortcut-nav-items a {
+    display: inline-block;
+    height: 44px;
+    padding: 0 20px;
+    color: #333;
+    font: 400 16px/44px "microsoft yahei";
+}
+.shortcut-nav-items a:hover {
+    color: #C81623;
+}
+.shortcut-nav-img {
+    width: 200px;
+    height: 44px;
+    float: right;
+    margin-top: -10px;
+    margin-right: 50px;
+    /*position: relative;*/
+    /*left: -50px;*/
+    /*top: -10px;*/
+}
+
+.shortcut-nav-menu-one ul {
+    font: 400 14px/31px "microsoft yahei";   /*字体属性具有继承性，让儿子 a 具有此继承性*/
+}
+.shortcut-nav-menu-one li {
+    padding-left: 10px;
+    position: relative;
+}
+
+.shortcut-nav-menu-one a{
+    color: #fff;
+}
+
+.shortcut-nav-menu-one i {
+    right: 10px;
+    position: absolute;
+}
+
+.shortcut-nav-menu-one li:hover {
+    background-color: #fff;
+}
+
+.shortcut-nav-menu-one li:hover a,span,i{
+    color: #C81623;
+}
+
+.main-slider {
+    float: left;
+    margin: 12px 0 0 220px;
+    width: 730px;
+    height: 454px;
+    position: relative;
+}
+
+.main-slider ul {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -66px;
+}
+
+.main-slider ul li {
+    float: left;
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    background-color: #3E3E3E;
+    border-radius: 50%;   /*圆角矩形*/
+    line-height: 18px;
+    text-align: center;  /*让 li 里面的文本水平方向居中*/
+    margin: 0 2px;
+    cursor: pointer;   /*鼠标悬停时变成小手*/
+}
+
+.main-slider .arrow-left {  /* 轮播图左侧的箭头*/
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    left: 0px;
+    width: 28px;
+    height: 62px;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    font: 400 22px/62px "sumsun";
+    text-align: center;
+    border-radius: 10px 0 0 10px;
+}
+
+.main-slider .arrow-left:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.main-slider .arrow-right {  /*轮播图右侧的箭头*/
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    right: 0px;
+    width: 28px;
+    height: 62px;
+    background-color: pink;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    font: 400 22px/62px "sumsun";
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+}
+
+.main-slider .arrow-right:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.news{
+    float:left;
+    width:238px;
+    height:464px;
+    background:#fff;
+    margin-left:20px;
+    border:1px dotted #E4E4E4;
+}
+
+.news .news-block{
+    height:164px;
+    border-bottom:2px dotted #E4E4E4;
+    position:relative;
+}
+
+.news .news-block .title{
+    height:32px;
+    line-height:32px;
+    border-bottom:1px dotted #E4E4E4;
+    padding:0 10px;
+}
+
+.news .news-block h2{
+    float:left;
+    font:400 16px/32px "微软雅黑";
+}
+
+.news .news-block a{
+    float:right;
+}
+
+.news .news-block a:hover{
+    color:#c81623;
+}
+
+.news .news-block .content{
+    height:133px;
+}
+
+.news .news-block .content li{
+    padding:10px 0 0 10px;
+    height:20px;
+}
+
+.news .news-block .content li span{
+    font-weight:700;
+    margin-right:5px;
+    color:#666;
+}

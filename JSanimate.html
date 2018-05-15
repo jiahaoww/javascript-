@@ -1,0 +1,272 @@
+﻿<html>
+    <head>
+    <title>轮播图的实现</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style: none;
+        }
+
+        .main{
+            width:600px;
+            height:400px;
+            margin: 200px auto;
+            background-color: #fff;
+            padding:2px;
+            border:2px red solid;
+        }
+
+        .screen{
+            width:600px;
+            height:400px;
+            margin:0;
+            padding:0;
+            position:relative;
+            left:0;
+            top:0;
+            overflow:hidden;
+        }
+        
+        .main ul{
+            width:4200px;
+            height:400px;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        
+        .main ul li{
+            width:600px;
+            height:400px;
+            float:left;
+
+        }
+
+        .screen img{
+            width:600px;
+            height:400px;
+        }
+
+        .screen .arr-left{
+            width:40px;
+            height:80px;
+            position:absolute;
+            left:45px;
+            top:160px;
+            background-color: #c8bec1;
+            display:none;
+            padding-left:16px;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .screen .arr-right{
+            width:40px;
+            height:80px;
+            position:absolute;
+            right:45px;
+            top:160px;
+            background-color: #c8bec1;
+            display:none;
+            padding-left:16px;
+            border-radius: 0px 10px 10px 0px;
+
+        }
+
+        .screen span{
+            line-height:80px;
+            font:400 24px/80px "microsoft yahei";
+        }
+
+        .screen:hover .arr-left{
+            display:block;
+        }
+
+        .screen:hover .arr-right{
+            display:block;
+        }
+
+        .screen ol{
+            position:absolute;
+            bottom:40px;
+            left:300px;
+            margin-left:-75px;
+        }
+
+        .screen ol li{
+            float:left;
+            width:20px;
+            height:20px;
+            margin-left:10px;
+            text-align: center;
+            background-color: bisque;
+            border-radius: 10px;
+        }
+
+        .screen ol li.current{
+            background-color: red;
+        }
+
+
+    </style>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="screen">
+                <ul>
+                    <li><img src="./resource/image/dog1.jpg" alt="##"></li>
+                    <li><img src="./resource/image/douyu.jpg" alt="##"></li>
+                    <li><img src="./resource/image/china.jpg" alt="##"></li>
+                    <li><img src="./resource/image/travel.jpg" alt="##"></li>
+                    <li><img src="./resource/image/warcraft.jpg" alt="##"></li>
+
+                </ul>
+                <ol>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ol>
+                <div class="arr-left"><span><</span></div>
+                <div class="arr-right"><span>></span></div>
+            </div>
+
+        </div>
+
+        <script>
+            var screen=document.getElementsByClassName("screen")[0];
+            var ul=screen.children[0];
+            var firstLi=ul.children[0];
+            console.log(firstLi);
+            var lastLi=firstLi.cloneNode(true);
+            console.log(firstLi);
+            ul.appendChild(lastLi);
+            var leftArr=document.getElementsByClassName("arr-left")[0];
+            var rightArr=document.getElementsByClassName("arr-right")[0];
+            var li=document.getElementsByTagName("ol")[0].children;
+
+
+
+            var key=0;
+            var btn=1;
+            var base=ul.offsetLeft;
+            li[0].className="current";
+
+            //console.log(base);
+
+            var timer=setInterval(autoPlay,1000);
+
+            screen.onmouseover=function(){
+                clearInterval(timer);
+
+            }
+
+            screen.onmouseout=function(){
+                timer=setInterval(autoPlay,1000);
+            }
+
+            leftArr.onclick=function() {
+                if(btn==1){
+                    btn=5;
+                }
+                else{
+                    btn--;
+                }
+                for(var i=0;i<5;i++){
+                    if((i+1)!=btn){
+                        li[i].className="";
+                    }
+                    else{
+                        li[i].className="current";
+                    }
+                }
+
+                if(key==0){
+
+                    key=4;
+                    ul.style.left=(key+1)*(-600)+"px";
+                }
+                else{
+                    key--;
+                }
+                console.log(key);
+                animate(ul,key*(-600));
+
+
+            }
+
+            console.log(rightArr);
+
+             rightArr.onclick=function(){
+                 autoPlay();
+             }
+
+             for(let i=0 ; i<li.length;i++){
+                 li[i].index = i;
+                 li[i].onmouseover=function(){
+                     console.log(i);
+                     for(var j=0;j<li.length;j++){
+                             li[j].className="";
+                     }
+                     this.className = "current";
+                     key=this.index;
+                     btn=this.index+1;
+                     animate(ul,key*(-600));
+                 }
+             }
+
+
+
+            function autoPlay(){
+
+                    key++;
+                    btn++;
+                    if(btn==6){
+                        btn=1;
+                    }
+                    //console.log(key);
+                    if(key==6){
+                        ul.style.left="0px";
+                        key=1;
+                    }
+
+
+
+                    animate(ul,key*(-600));
+                for(var i=0;i<li.length;i++){
+                    if(i+1==btn){
+                        li[i].className="current";
+                    }
+                    else{
+                        li[i].className="";
+                    }
+                }
+
+            }
+
+            function animate(ele,pos){
+                clearInterval(ele.timer);
+                var speed=pos<ele.offsetLeft?-10:10;
+
+                ele.timer=setInterval(function(){
+                    var val = pos - ele.offsetLeft;
+                    //console.log(left);
+                    ele.style.left=ele.offsetLeft+speed+"px";
+                    //console.log(ele.style.left);
+                    if(Math.abs(val)<Math.abs(speed)){
+                        //console.log(true);
+                        ele.style.left=pos+"px";
+                        //console.log(ele.style.left);
+                        clearInterval(ele.timer);
+                    }
+
+                },10);
+
+            }
+
+
+        </script>
+    </body>
+</html>
